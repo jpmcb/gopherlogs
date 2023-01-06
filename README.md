@@ -12,6 +12,10 @@ Features:
 - Dynamic log line replacement
 - No external dependencies; what you see is what you get.
 
+![gopherlogs](https://user-images.githubusercontent.com/23109390/211069112-32a20648-0ee0-4dd5-b845-21fcc3d19693.gif)
+
+---
+
 ## Usage
 
 Install as a dependency in your Go module:
