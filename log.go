@@ -92,7 +92,7 @@ type Logger interface {
 }
 
 // NewLogger returns an instance of Logger, implemented via CMDLogger.
-func NewLogger(options ...LoggerOptions) Logger {
+func NewLogger(options ...LoggerOptions) (Logger, error) {
 	fd := int(os.Stdout.Fd())
 
 	l := &CMDLogger{
@@ -106,10 +106,12 @@ func NewLogger(options ...LoggerOptions) Logger {
 
 	// Apply given logger options
 	for _, o := range options {
-		o.apply(l)
+        if err := o.apply(l); err != nil {
+            return nil, err
+        }
 	}
 
-	return l
+	return l, nil
 }
 
 func (l *CMDLogger) Event(emoji, message string) {
@@ -229,13 +231,13 @@ func (l *CMDLogger) progressf(count int, message string, args ...interface{}) {
 	// Process message style and ensure we clear the line with \r in tty mode
 	message = processStyle(l, message)
 	if l.tty {
-		message = "\r" + message
+		message = "\r\033[K" + message
 	}
 
 	// TODO(joshrosso): Is there a better way to do this?
 	// we pad with extra space to ensure the line we overwrite (\r) is cleaned
 	// nolint
-	message += "             "
+	//message += "             "
 
 	// when count is 0, a line break should be added at the end
 	// this support non-tty use cases
@@ -262,7 +264,8 @@ func (l *CMDLogger) progressf(count int, message string, args ...interface{}) {
 			sb.WriteString(".")
 		}
 
-		sb.WriteString("             ")
+        // TODO - anyway to make this look nicer?
+		//sb.WriteString("             ")
 
 		if count == 0 {
 			sb.WriteString("\n")
@@ -282,12 +285,12 @@ func (l *CMDLogger) ReplaceLinef(message string, args ...interface{}) {
 	// Process message style and Ensure we clear the line with \r in tty mode
 	message = processStyle(l, message)
 	if l.tty {
-		message = "\r" + message
+		message = "\r\033[K" + message
 	}
 
 	// TODO(joshrosso): Is there a better way to do this?
 	// we pad with extra space to ensure the line we overwrite (\r) is cleaned
-	message += "             "
+	//message += "             "
 
 	// add a line break
 	// this also supports non-tty use cases

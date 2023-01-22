@@ -13,11 +13,14 @@ func TestNewLoggerWithWriter(t *testing.T) {
 	var b bytes.Buffer
 	writer := bufio.NewWriter(&b)
 	//logger := NewLogger(false, 5, writer)
-	logger := NewLogger(
-		LoggerWithOutputWriter(writer),
-		LoggerWithTty(false),
-		LoggerWithLogVerbosity(5),
+	logger, err := NewLogger(
+		WithOutputWriter(writer),
+		WithTty(false),
+		WithLogVerbosity(5),
 	)
+    if err != nil {
+        t.Errorf("Expected NewLogger to not error: %s", err.Error())
+    }
 
 	logger.Info("Generating Message in Info")
 	logger.Info("Generating Message in Info again")
@@ -31,30 +34,46 @@ func TestNewLoggerWithWriter(t *testing.T) {
 func TestNewLoggerDifferentWriters(t *testing.T) {
 	var b bytes.Buffer
 	writer := bufio.NewWriter(&b)
-	logger := NewLogger(
-		LoggerWithOutputWriter(writer),
-		LoggerWithTty(false),
-		LoggerWithLogVerbosity(5),
+	logger, err := NewLogger(
+		WithOutputWriter(writer),
+		WithTty(false),
+		WithLogVerbosity(5),
 	)
+    if err != nil {
+        t.Errorf("Expected NewLogger to not error: %s", err.Error())
+    }
+
 	logger.Info("Generating Message in Info")
 	logger.Info("Generating Message in Info again")
-	logger = NewLogger(
-		LoggerWithOutputWriter(os.Stdout),
-		LoggerWithTty(false),
-		LoggerWithLogVerbosity(5),
+	logger, err = NewLogger(
+		WithOutputWriter(os.Stdout),
+		WithTty(false),
+		WithLogVerbosity(5),
 	)
+    if err != nil {
+        t.Errorf("Expected NewLogger to not error: %s", err.Error())
+    }
+
 	logger.Info("This should not be in the buffer")
-	logger = NewLogger(
-		LoggerWithOutputWriter(io.Discard),
-		LoggerWithTty(false),
-		LoggerWithLogVerbosity(5),
+	logger, err = NewLogger(
+		WithOutputWriter(io.Discard),
+		WithTty(false),
+		WithLogVerbosity(5),
 	)
+    if err != nil {
+        t.Errorf("Expected NewLogger to not error: %s", err.Error())
+    }
 	logger.Info("This should be discarded")
-	logger = NewLogger(
-		LoggerWithOutputWriter(writer),
-		LoggerWithTty(false),
-		LoggerWithLogVerbosity(5),
+
+	logger, err = NewLogger(
+		WithOutputWriter(writer),
+		WithTty(false),
+		WithLogVerbosity(5),
 	)
+    if err != nil {
+        t.Errorf("Expected NewLogger to not error: %s", err.Error())
+    }
+
 	logger.Info("This should be captured in buffer writer")
 	writer.Flush()
 	lineCount := len(strings.Split(strings.Trim(b.String(), "\n"), "\n"))
