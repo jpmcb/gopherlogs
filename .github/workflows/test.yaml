@@ -1,4 +1,4 @@
-name: Go module
+name: Tests
 
 on: [push]
 
