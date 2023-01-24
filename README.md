@@ -1,7 +1,7 @@
 # gopherlogs
 
 [![go report card](https://goreportcard.com/badge/github.com/jpmcb/gopherlogs "go report card")](https://goreportcard.com/report/github.com/jpmcb/gopherlogs)
-[![test status](https://github.com/jpmcb/gopherlogs/workflows/Tests/badge.svg?branch=main "test status")](https://github.com/jpmcb/gopherlogs/actions)
+[![test status](https://github.com/jpmcb/gopherlogs/workflows/Tests/badge.svg?branch=main)](https://github.com/jpmcb/gopherlogs/actions)
 [![Apache-2.0 license](https://img.shields.io/github/license/jpmcb/gopherlogs)](https://opensource.org/licenses/Apache-2.0)
 [![Go.Dev reference](https://img.shields.io/badge/go.dev-reference-blue?logo=go&logoColor=white)](https://pkg.go.dev/github.com/jpmcb/gopherlogs)
 
