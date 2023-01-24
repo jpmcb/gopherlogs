@@ -1,5 +1,10 @@
 # gopherlogs
 
+[![go report card](https://goreportcard.com/badge/github.com/jpmcb/gopherlogs "go report card")](https://goreportcard.com/report/github.com/jpmcb/gopherlogs)
+[![test status](https://github.com/jpmcb/gopherlogs/workflows/tests/badge.svg?branch=main "test status")](https://github.com/jpmcb/gopherlogs/actions)
+[![Apache-2.0 license](https://img.shields.io/github/license/jpmcb/gopherlogs)](https://opensource.org/licenses/Apache-2.0)
+[![Go.Dev reference](https://img.shields.io/badge/go.dev-reference-blue?logo=go&logoColor=white)](https://pkg.go.dev/github.com/jpmcb/gopherlogs)
+
 _A simple, powerful, and extensible Go logging framework with batteries included._
 
 `gopherlogs` is ideal for command line applications,
@@ -8,11 +13,9 @@ and much more.
 
 Features:
 - Animated logging compatible with concurrent Go routines
-- Support for "emoji" style logs
+- Support for _"emoji"_ style logs
 - Dynamic log line replacement
 - No external dependencies; what you see is what you get.
-
-![gopherlogs](https://user-images.githubusercontent.com/23109390/211069112-32a20648-0ee0-4dd5-b845-21fcc3d19693.gif)
 
 ---
 
@@ -34,7 +37,7 @@ And tidy up your modules and `go.sum` with:
 $ go mod tidy
 ```
 
-In your go code, you can now import gopherlogs and use it!
+In your go code, you can now import `gopherlogs`:
 
 ```go
 package main
@@ -44,7 +47,17 @@ import (
 )
 
 func main() {
-        l := gopherlogs.NewLogger()
+        // Creates a new logger with options
+        l, err := gopherlogs.NewLogger(
+            WithLogVerbosity(5),
+        )
+
+        // Handle errors from creating a new logger
+        if err != nil {
+            panic("Could not create new logger")
+        }
+
+        // Start logging!
         l.Info("Hello world")
 }
 ```
