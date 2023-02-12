@@ -114,6 +114,7 @@ func NewLogger(options ...LoggerOptions) (Logger, error) {
 	return l, nil
 }
 
+// Event is used to emit events to the logger
 func (l *CMDLogger) Event(emoji, message string) {
 	if l.logLevel > l.verbosity {
 		return
