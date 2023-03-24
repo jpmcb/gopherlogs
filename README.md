@@ -1,3 +1,8 @@
+<p>
+    <img src="https://user-images.githubusercontent.com/23109390/227600598-11e1f583-fca2-4f9e-9626-b26dbdbc1323.png" width=400>
+    <img src="https://user-images.githubusercontent.com/23109390/227600551-58c7c47b-3407-4263-8c48-668e5a8743c6.gif" width=650>
+</p>
+
 # gopherlogs
 
 [![go report card](https://goreportcard.com/badge/github.com/jpmcb/gopherlogs "go report card")](https://goreportcard.com/report/github.com/jpmcb/gopherlogs)
