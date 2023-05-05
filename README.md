@@ -10,7 +10,7 @@
 [![Apache-2.0 license](https://img.shields.io/github/license/jpmcb/gopherlogs)](https://opensource.org/licenses/Apache-2.0)
 [![Go.Dev reference](https://img.shields.io/badge/go.dev-reference-blue?logo=go&logoColor=white)](https://pkg.go.dev/github.com/jpmcb/gopherlogs)
 
-_A simple, powerful, and extensible Go logging framework with batteries included._
+_A simple, powerful, and extensible Go logging framework with batteries included 🔋._
 
 `gopherlogs` is ideal for command line applications,
 combined logging to system files alongside terminal output,
