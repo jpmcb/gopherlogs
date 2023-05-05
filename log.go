@@ -106,9 +106,9 @@ func NewLogger(options ...LoggerOptions) (Logger, error) {
 
 	// Apply given logger options
 	for _, o := range options {
-        if err := o.apply(l); err != nil {
-            return nil, err
-        }
+		if err := o.apply(l); err != nil {
+			return nil, err
+		}
 	}
 
 	return l, nil
@@ -264,7 +264,7 @@ func (l *CMDLogger) progressf(count int, message string, args ...interface{}) {
 			sb.WriteString(".")
 		}
 
-        // TODO - anyway to make this look nicer?
+		// TODO - anyway to make this look nicer?
 		//sb.WriteString("             ")
 
 		if count == 0 {

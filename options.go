@@ -15,49 +15,49 @@ type LoggerOptions interface {
 type loggerOptionAdapter func(*CMDLogger) error
 
 func (l loggerOptionAdapter) apply(o *CMDLogger) error {
-    err := l(o)
-    return err
+	err := l(o)
+	return err
 }
 
 func WithTty(isTty bool) LoggerOptions {
 	return loggerOptionAdapter(func(l *CMDLogger) error {
 		l.tty = isTty
-        return nil
+		return nil
 	})
 }
 
 func WithLogVerbosity(verbosity int) LoggerOptions {
 	return loggerOptionAdapter(func(l *CMDLogger) error {
 		l.verbosity = verbosity
-        return nil
+		return nil
 	})
 }
 
 func WithLogLevel(logLevel int) LoggerOptions {
 	return loggerOptionAdapter(func(l *CMDLogger) error {
 		l.logLevel = logLevel
-        return nil
+		return nil
 	})
 }
 
 func WithLeftPadIndent(indent int) LoggerOptions {
 	return loggerOptionAdapter(func(l *CMDLogger) error {
 		l.indent = indent
-        return nil
+		return nil
 	})
 }
 
 func WithTermFileDescriptor(termFd int) LoggerOptions {
 	return loggerOptionAdapter(func(l *CMDLogger) error {
 		l.termFd = termFd
-        return nil
+		return nil
 	})
 }
 
 func WithColor(color colors.Attribute) LoggerOptions {
 	return loggerOptionAdapter(func(l *CMDLogger) error {
 		l.logColor = color
-        return nil
+		return nil
 	})
 }
 
@@ -65,7 +65,7 @@ func WithOutputWriter(writer io.Writer) LoggerOptions {
 	return loggerOptionAdapter(func(l *CMDLogger) error {
 		l.output = writer
 		l.defaultWriter = writer
-        return nil
+		return nil
 	})
 }
 
@@ -79,6 +79,6 @@ func WithLogFile(filePath string) LoggerOptions {
 
 		// Set the output to the new multiwriter while keeping the default writer
 		l.output = io.MultiWriter(logFile, l.defaultWriter)
-        return nil
+		return nil
 	})
 }

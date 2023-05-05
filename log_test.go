@@ -18,9 +18,9 @@ func TestNewLoggerWithWriter(t *testing.T) {
 		WithTty(false),
 		WithLogVerbosity(5),
 	)
-    if err != nil {
-        t.Errorf("Expected NewLogger to not error: %s", err.Error())
-    }
+	if err != nil {
+		t.Errorf("Expected NewLogger to not error: %s", err.Error())
+	}
 
 	logger.Info("Generating Message in Info")
 	logger.Info("Generating Message in Info again")
@@ -39,9 +39,9 @@ func TestNewLoggerDifferentWriters(t *testing.T) {
 		WithTty(false),
 		WithLogVerbosity(5),
 	)
-    if err != nil {
-        t.Errorf("Expected NewLogger to not error: %s", err.Error())
-    }
+	if err != nil {
+		t.Errorf("Expected NewLogger to not error: %s", err.Error())
+	}
 
 	logger.Info("Generating Message in Info")
 	logger.Info("Generating Message in Info again")
@@ -50,9 +50,9 @@ func TestNewLoggerDifferentWriters(t *testing.T) {
 		WithTty(false),
 		WithLogVerbosity(5),
 	)
-    if err != nil {
-        t.Errorf("Expected NewLogger to not error: %s", err.Error())
-    }
+	if err != nil {
+		t.Errorf("Expected NewLogger to not error: %s", err.Error())
+	}
 
 	logger.Info("This should not be in the buffer")
 	logger, err = NewLogger(
@@ -60,9 +60,9 @@ func TestNewLoggerDifferentWriters(t *testing.T) {
 		WithTty(false),
 		WithLogVerbosity(5),
 	)
-    if err != nil {
-        t.Errorf("Expected NewLogger to not error: %s", err.Error())
-    }
+	if err != nil {
+		t.Errorf("Expected NewLogger to not error: %s", err.Error())
+	}
 	logger.Info("This should be discarded")
 
 	logger, err = NewLogger(
@@ -70,9 +70,9 @@ func TestNewLoggerDifferentWriters(t *testing.T) {
 		WithTty(false),
 		WithLogVerbosity(5),
 	)
-    if err != nil {
-        t.Errorf("Expected NewLogger to not error: %s", err.Error())
-    }
+	if err != nil {
+		t.Errorf("Expected NewLogger to not error: %s", err.Error())
+	}
 
 	logger.Info("This should be captured in buffer writer")
 	writer.Flush()
