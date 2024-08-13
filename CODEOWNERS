@@ -1,13 +1,14 @@
 # This file is generated automatically. DO NOT EDIT.
 
-.github/workflows/test.yaml John McBride <jpmmcbride@gmail.com>
-LICENSE John McBride <jpmmcbride@gmail.com>
-README.md John McBride <jpmmcbride@gmail.com>
-animator.go John McBride <jpmmcbride@gmail.com>
-go.mod John McBride <jpmmcbride@gmail.com>
-go.sum John McBride <jpmmcbride@gmail.com>
-log.go John McBride <jpmmcbride@gmail.com>
-log_test.go John McBride <jpmmcbride@gmail.com>
-options.go John McBride <jpmmcbride@gmail.com>
-pkg/colors/colors.go John McBride <jpmmcbride@gmail.com>
-pkg/emojis/emojis.go John McBride <jpmmcbride@gmail.com>
+.github/workflows/test.yaml @jpmcb
+CODEOWNERS @jpmcb
+LICENSE @jpmcb
+README.md @jpmcb
+animator.go @jpmcb
+go.mod @jpmcb
+go.sum @jpmcb
+log.go @jpmcb
+log_test.go @jpmcb
+options.go @jpmcb
+pkg/colors/colors.go @jpmcb
+pkg/emojis/emojis.go @jpmcb
